@@ -2,7 +2,7 @@
 有时一个项目可能分为多个子项目，例如一个商城可能分为商城主项目、商城api接口、商城管理后台3个子项目，他们都使用相同的数据库配置。
 
 webman允许你这样规划app目录：
-```
+```bash
 app
 ├── shop
 │   ├── controller
@@ -23,7 +23,7 @@ app
 当访问地址 `http://127.0.0.1:8787/admin/{控制器}/{方法}` 时访问`app/admin/controller`下的控制器与方法。
 
 在webman中，甚至可以这样规划app目录。
-```
+```bash
 app
 ├── controller
 ├── model

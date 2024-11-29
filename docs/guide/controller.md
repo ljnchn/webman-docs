@@ -132,7 +132,7 @@ Input age must be of type int, string given
 我们可以利用多语言自定义`Missing input parameter age` 和 `Input age must be of type int, string given` 这样的错误，
 参考如下命令
 
-```
+```shell
 composer require symfony/translation
 mkdir resource/translations/zh_CN/ -p
 echo "<?php

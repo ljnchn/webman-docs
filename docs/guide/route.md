@@ -11,7 +11,7 @@ webman默认路由规则是 `http://127.0.0.1:8787/{控制器}/{动作}`。
 - `http://127.0.0.1:8787/admin/foo/test` 将默认访问`app\admin\controller\FooController`类的`test`方法 (参考[多应用](multiapp.md))
 
 另外webman从1.4开始支持更复杂的默认路由，例如
-```php
+```bash
 app
 ├── admin
 │   └── v1

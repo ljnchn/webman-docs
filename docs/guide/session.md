@@ -193,22 +193,26 @@ return [
 ];
 ```
 
-> **注意** 
-> webman从1.4.0起更改了SessionHandler的命名空间，由原来的
-> use Webman\FileSessionHandler;  
-> use Webman\RedisSessionHandler;  
-> use Webman\RedisClusterSessionHandler;  
-> 改为  
-> use Webman\Session\FileSessionHandler;  
-> use Webman\Session\RedisSessionHandler;  
-> use Webman\Session\RedisClusterSessionHandler;  
 
+::: warning
+**注意** 
+webman从1.4.0起更改了SessionHandler的命名空间
+:::
 
+```php
+use Webman\FileSessionHandler;   // [!code --]
+use Webman\RedisSessionHandler;   // [!code --]
+use Webman\RedisClusterSessionHandler;   // [!code --]
+
+use Webman\Session\FileSessionHandler;   // [!code ++]
+use Webman\Session\RedisSessionHandler;   // [!code ++]
+use Webman\Session\RedisClusterSessionHandler;   // [!code ++]
+```
 
 ## 有效期配置
 当webman-framework < 1.3.14时，webman中session过期时间需要在`php.ini`配置。
 
-```
+```shell
 session.gc_maxlifetime = x
 session.cookie_lifetime = x
 session.gc_probability = 1
@@ -216,7 +220,7 @@ session.gc_divisor = 1000
 ```
 
 假设设定有效期为1440秒，则配置如下
-```
+```shell
 session.gc_maxlifetime = 1440
 session.cookie_lifetime = 1440
 session.gc_probability = 1

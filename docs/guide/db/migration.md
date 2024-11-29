@@ -22,7 +22,7 @@ https://tsy12321.gitbooks.io/phinx-doc/content/
 
 ## 迁移文件目录结构
 
-```
+```bash
 .
 ├── app                           应用目录
 │   ├── controller                控制器目录
