@@ -12,7 +12,7 @@ webman遵循`PSR-4`自动加载规范。如果你的业务需要加载`PSR-0`规
 }
 ```
 最终结果类似
-![](../../public/assets/img/psr0.png)
+![](.././assets/img/psr0.png)
 
 - 执行 `composer dumpautoload`
 - 执行 `php start.php restart` 重启webman (注意，必须重启才能生效) 

@@ -150,7 +150,7 @@ class TestController
 协程不是银弹，引入协程意味着需要注意全局变量/静态变量污染问题，需要设置context上下文。另外协程环境调试bug比阻塞式编程更复杂一些。
 
 webman阻塞式编程实际上已经足够快，通过[techempower.com](https://www.techempower.com/benchmarks/#section=data-r21&l=zijnjz-6bj&test=db&f=1ekg-cbcw-2t4w-27wr68-pc0-iv9slc-0-1ekgw-39g-kxs00-o0zk-4fu13d-2x8do8-2) 最近三年的三轮的压测数据看，webman阻塞式编程带数据库业务比go的web框架gin、echo等性能高近1倍，比传统框架laravel性能高出近40倍。
-![](../../public/assets/img/benchemarks-go-sw.png?)
+![](.././assets/img/benchemarks-go-sw.png?)
 
 当数据库、redis都在内网时，多进程阻塞式编程性能可能往往高于协程，这是由于数据库、redis等足够快时，协程创建、调度、销毁的开销可能要大于进程切换的开销，所以这时引入协程并不能显著提升性能。
 

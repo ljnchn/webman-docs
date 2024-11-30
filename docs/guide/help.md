@@ -6,4 +6,4 @@ https://www.workerman.net/questions
 
 ## 技术交流群
 
-![](../public/assets/img/webman-qun-qr.jpg)
+![](./assets/img/webman-qun-qr.jpg)

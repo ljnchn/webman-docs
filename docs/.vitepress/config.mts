@@ -5,8 +5,15 @@ export default defineConfig({
   lang: "zh-Hans",
   title: "Webman",
   description: "性能爆炸的 PHP 内存框架",
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [["link", { rel: "icon", href: "/favicon.ico" }]],
+  sitemap: {
+    hostname: "https://webman.rmb.run",
+  },
   markdown: {
+    image: {
+      // 默认禁用；设置为 true 可为所有图片启用懒加载。
+      lazyLoading: true,
+    },
     // theme: {
     //   light: "github-light",
     //   dark: "one-dark-pro",
@@ -14,7 +21,6 @@ export default defineConfig({
   },
   // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
-
     search: {
       provider: "local",
     },
@@ -22,20 +28,22 @@ export default defineConfig({
     nav: nav(),
 
     editLink: {
-      pattern: 'https://github.com/ljnchn/webman-docs/edit/main/docs/:path',
-      text: '在 GitHub 上编辑此页面'
+      pattern: "https://github.com/ljnchn/webman-docs/edit/main/docs/:path",
+      text: "在 GitHub 上编辑此页面",
     },
 
     footer: {
-      message: '基于 MIT 许可发布',
-      copyright: `版权所有 © 2019-${new Date().getFullYear()}`
+      message: "基于 MIT 许可发布",
+      copyright: `版权所有 © 2019-${new Date().getFullYear()}`,
     },
 
     sidebar: {
-      '/guide/': { base: '/guide/', items: sidebarGuide() },
+      "/guide/": { base: "/guide/", items: sidebarGuide() },
+      "/workerman/": { base: "/workerman/", items: sidebarWorkerman() },
+      "/gateway/": { base: "/gateway/", items: sidebarGateway() },
     },
 
-    socialLinks: [{ icon: "github", link: "https://github.com/walkor/webman" }],
+    socialLinks: [{ icon: "github", link: "https://github.com/ljnchn/webman-docs" }],
 
     docFooter: {
       prev: "上一页",
@@ -66,16 +74,30 @@ export default defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
-      text: '指南',
-      link: '/guide/README',
-      activeMatch: '/guide/'
+      text: "指南",
+      link: "/guide/README",
+      activeMatch: "/guide/",
+    },
+    {
+      text: "其它",
+      items: [
+        {
+          text: "workerman",
+          link: "/workerman/README",
+          activeMatch: "/workerman/",
+        },
+        {
+          text: "gateway",
+          link: "/gateway/README",
+          activeMatch: "/gateway/",
+        },
+      ],
     },
     { text: "官网", link: "https://www.workerman.net/" },
     { text: "社区", link: "https://www.workerman.net/questions" },
     { text: "插件", link: "https://www.workerman.net/webman" },
-  ]
+  ];
 }
-
 
 function sidebarGuide(): DefaultTheme.SidebarItem[] {
   return [
@@ -240,34 +262,524 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
   ];
 }
 
-function sidebarReference(): DefaultTheme.SidebarItem[] {
+function sidebarWorkerman(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: "参考",
+      text: "序言",
+      link: "README",
+    },
+    {
+      text: "原理",
+      link: "principle",
+    },
+    {
+      text: "开发必读",
+      link: "must-read",
+    },
+    {
+      text: "入门指引",
+      collapsed: false,
       items: [
-        { text: "站点配置", link: "site-config" },
-        { text: "frontmatter 配置", link: "frontmatter-config" },
-        { text: "运行时 API", link: "runtime-api" },
-        { text: "CLI", link: "cli" },
+        { text: "特性", link: "getting-started/feature" },
+        { text: "简单的开发示例", link: "getting-started/simple-example" },
+      ],
+    },
+    {
+      text: "安装",
+      collapsed: false,
+      items: [
+        { text: "环境要求", link: "install/requirement" },
+        { text: "下载安装", link: "install/install" },
+        { text: "启动停止", link: "install/start-and-stop" },
+      ],
+    },
+    {
+      text: "开发流程",
+      collapsed: false,
+      items: [
+        { text: "开发前必读", link: "development/before-development" },
+        { text: "目录结构", link: "development/directory-structure" },
+        { text: "开发规范", link: "development/standard" },
+        { text: "基本流程", link: "development/process" },
+      ],
+    },
+    {
+      text: "通讯协议",
+      collapsed: false,
+      items: [
+        { text: "通讯协议作用", link: "protocols/why-protocols" },
+        { text: "定制通讯协议", link: "protocols/how-protocols" },
+        { text: "一些例子", link: "protocols/example" },
+      ],
+    },
+    {
+      text: "Worker类",
+      collapsed: false,
+      link: "worker",
+      items: [
+        { text: "构造函数", link: "worker/construct" },
         {
-          text: "默认主题",
-          base: "/zh/reference/default-theme-",
+          text: "属性",
           items: [
-            { text: "概览", link: "config" },
-            { text: "导航栏", link: "nav" },
-            { text: "侧边栏", link: "sidebar" },
-            { text: "主页", link: "home-page" },
-            { text: "页脚", link: "footer" },
-            { text: "布局", link: "layout" },
-            { text: "徽章", link: "badge" },
-            { text: "团队页", link: "team-page" },
-            { text: "上下页链接", link: "prev-next-links" },
-            { text: "编辑链接", link: "edit-link" },
-            { text: "最后更新时间戳", link: "last-updated" },
-            { text: "搜索", link: "search" },
-            { text: "Carbon Ads", link: "carbon-ads" },
+            { text: "id", link: "worker/workerid" },
+            { text: "count", link: "worker/count" },
+            { text: "name", link: "worker/name" },
+            { text: "protocol", link: "worker/protocol" },
+            { text: "transport", link: "worker/transport" },
+            { text: "reusePort", link: "worker/reuse-port" },
+            { text: "connections", link: "worker/connections" },
+            { text: "stdoutFile", link: "worker/stdout-file" },
+            { text: "pidFile", link: "worker/pid-file" },
+            { text: "logFile", link: "worker/log-file" },
+            { text: "user", link: "worker/user" },
+            { text: "reloadable", link: "worker/reloadable" },
+            { text: "daemonize", link: "worker/daemonize" },
+            { text: "globalEvent", link: "worker/global-event" },
           ],
         },
+        {
+          text: "回调属性",
+          items: [
+            { text: "onWorkerStart", link: "worker/on-worker-start" },
+            { text: "onWorkerReload", link: "worker/on-worker-reload" },
+            { text: "onConnect", link: "worker/on-connect" },
+            { text: "onMessage", link: "worker/on-message" },
+            { text: "onClose", link: "worker/on-close" },
+            { text: "onBufferFull", link: "worker/on-buffer-full" },
+            { text: "onBufferDrain", link: "worker/on-buffer-drain" },
+            { text: "onError", link: "worker/on-error" },
+          ],
+        },
+        {
+          text: "接口",
+          items: [
+            { text: "runAll", link: "worker/run-all" },
+            { text: "stopAll", link: "worker/stop-all" },
+            { text: "listen", link: "worker/listen" },
+          ],
+        },
+      ],
+    },
+    {
+      text: "TcpConnection类",
+      collapsed: false,
+      link: "tcp-connection",
+      items: [
+        {
+          text: "属性",
+          items: [
+            { text: "id", link: "tcp-connection/id" },
+            { text: "protocol", link: "tcp-connection/protocol" },
+            { text: "worker", link: "tcp-connection/worker" },
+            {
+              text: "maxSendBufferSize",
+              link: "tcp-connection/max-send-buffer-size",
+            },
+            {
+              text: "defaultMaxSendBufferSize",
+              link: "tcp-connection/default-max-send-buffer-size",
+            },
+            {
+              text: "defaultMaxPackageSize",
+              link: "tcp-connection/default-max-package-size",
+            },
+          ],
+        },
+        {
+          text: "回调属性",
+          items: [
+            { text: "onMessage", link: "tcp-connection/on-message" },
+            { text: "onClose", link: "tcp-connection/on-close" },
+            { text: "onBufferFull", link: "tcp-connection/on-buffer-full" },
+            {
+              text: "onBufferDrain",
+              link: "tcp-connection/on-buffer-drain",
+            },
+            { text: "onError", link: "tcp-connection/on-error" },
+          ],
+        },
+        {
+          text: "接口",
+          items: [
+            { text: "send", link: "tcp-connection/send" },
+            { text: "getRemoteIp", link: "tcp-connection/get-remote-ip" },
+            {
+              text: "getRemotePort",
+              link: "tcp-connection/get-remote-port",
+            },
+            { text: "close", link: "tcp-connection/close" },
+            { text: "destroy", link: "tcp-connection/destroy" },
+            { text: "pauseRecv", link: "tcp-connection/pause-recv" },
+            { text: "resumeRecv", link: "tcp-connection/resume-recv" },
+            { text: "pipe", link: "tcp-connection/pipe" },
+          ],
+        },
+      ],
+    },
+    {
+      text: "AsyncTcpConnection类",
+      collapsed: false,
+      link: "async-tcp-connection",
+      items: [
+        { text: "__construct", link: "async-tcp-connection/construct" },
+        { text: "connect", link: "async-tcp-connection/connect" },
+        { text: "reconnect", link: "async-tcp-connection/reconnect" },
+        { text: "transport", link: "async-tcp-connection/transport" },
+      ],
+    },
+    {
+      text: "AsyncUdpConnection类",
+      collapsed: false,
+      link: "async-udp-connection",
+      items: [
+        { text: "__construct", link: "async-udp-connection/construct" },
+        { text: "connect", link: "async-udp-connection/connect" },
+        { text: "send", link: "async-udp-connection/send" },
+        { text: "close", link: "async-udp-connection/close" },
+      ],
+    },
+    {
+      text: "Timer定时器类",
+      collapsed: false,
+      items: [
+        { text: "add", link: "timer/add" },
+        { text: "del", link: "timer/del" },
+        { text: "定时器注意事项", link: "timer/notice" },
+        { text: "crontab", link: "timer/crontab" },
+      ],
+    },
+    {
+      text: "Http服务",
+      collapsed: false,
+      items: [
+        { text: "请求", link: "http/request" },
+        { text: "响应", link: "http/response" },
+        { text: "session会话", link: "http/session" },
+        { text: "session管理", link: "http/session-control" },
+        { text: "SSE", link: "http/SSE" },
+      ],
+    },
+    {
+      text: "调试",
+      collapsed: false,
+      items: [
+        { text: "基本调试", link: "debug/base" },
+        { text: "status命令查看运行状态", link: "debug/status" },
+        { text: "调试busy进程", link: "debug/busy-process" },
+        { text: "网络抓包", link: "debug/tcpdump" },
+        { text: "跟踪系统调用", link: "debug/strace" },
+      ],
+    },
+    {
+      text: "常用组件",
+      collapsed: false,
+      items: [
+        {
+          text: "GlobalData数据共享组件",
+          link: "components/global-data",
+          items: [
+            {
+              text: "GlobalDataServer",
+              link: "components/global-data-server",
+            },
+            {
+              text: "GlobalDataClient",
+              link: "components/global-data-client",
+              items: [
+                { text: "add", link: "components/global-data-client-add" },
+                { text: "cas", link: "components/global-data-client-cas" },
+                {
+                  text: "increment",
+                  link: "components/global-data-client-increment",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          text: "Channel分布式通讯组件",
+          link: "components/channel",
+          items: [
+            { text: "ChannelServer", link: "components/channel-server" },
+            {
+              text: "channelClient",
+              link: "components/channel-client",
+              items: [
+                {
+                  text: "connect",
+                  link: "components/channel-client-connect",
+                },
+                { text: "on", link: "components/channel-client-on" },
+                {
+                  text: "publish",
+                  link: "components/channel-client-publish",
+                },
+                {
+                  text: "unsubsribe",
+                  link: "components/channel-client-unsubsribe",
+                },
+              ],
+            },
+            { text: "例子-集群推送", link: "components/channel-examples" },
+            { text: "例子-分组发送", link: "components/channel-examples2" },
+          ],
+        },
+        {
+          text: "FileMonitor文件监控组件",
+          link: "components/file-monitor",
+        },
+        {
+          text: "MySQL组件",
+          link: "components/mysql",
+          items: [{ text: "数据库类", link: "components/other-mysql-class" }],
+        },
+        {
+          text: "Redis组件",
+          link: "components/redis",
+          items: [
+            { text: "workerman/redis", link: "components/workerman-redis" },
+          ],
+        },
+        {
+          text: "异步http组件",
+          link: "components/async-http",
+          items: [
+            {
+              text: "workerman/http-client",
+              link: "components/workerman-http-client",
+            },
+          ],
+        },
+        {
+          text: "异步消息队列组件",
+          link: "components/async-message-queue",
+          items: [
+            { text: "workemran/mqtt", link: "components/workerman-mqtt" },
+            {
+              text: "workerman/redis-queue",
+              link: "components/workerman-redis-queue",
+            },
+            { text: "workerman/stomp", link: "components/workerman-stomp" },
+            {
+              text: "workerman/rabbitmq",
+              link: "components/workerman-rabbitmq",
+            },
+          ],
+        },
+        { text: "Crontab定时任务", link: "components/crontab" },
+        { text: "Memcache", link: "components/memcache" },
+      ],
+    },
+    {
+      text: "常见问题",
+      collapsed: false,
+      items: [
+        { text: "心跳", link: "faq/heartbeat" },
+        { text: "自动加载", link: "faq/autoload" },
+        { text: "客户端连接失败原因", link: "faq/client-connect-fail" },
+        { text: "是否支持多线程", link: "faq/about-multi-thread" },
+        { text: "与其它框架整合", link: "faq/work-with-other-framework" },
+        { text: "运行多个workerman", link: "faq/running-concurent" },
+        { text: "支持哪些协议", link: "faq/protocols" },
+        { text: "如何设置进程数", link: "faq/processes-count" },
+        { text: "查看客户端连接数", link: "faq/connection-status" },
+        {
+          text: "对象和资源的持久化",
+          link: "faq/persistent-data-and-resources",
+        },
+        { text: "例子无法工作", link: "faq/demo-not-work" },
+        { text: "启动失败", link: "faq/workerman-start-fail" },
+        { text: "停止失败", link: "faq/stop-fail" },
+        { text: "支持多少并发", link: "faq/how-many-connections" },
+        { text: "更改代码不生效", link: "faq/change-code-not-work" },
+        { text: "向指定客户端发送数据", link: "faq/send-data-to-client" },
+        { text: "如何主动推送消息", link: "faq/active-push" },
+        { text: "在其它项目中推送", link: "faq/push-in-other-project" },
+        { text: "如何实现异步任务", link: "faq/async-task" },
+        { text: "status里send_fail的原因", link: "faq/about-send-fail" },
+        { text: "Windows下开发Linux下部署", link: "faq/windows-to-linux" },
+        { text: "是否支持socket.io", link: "faq/socketio-support" },
+        {
+          text: "终端关闭导致workerman关闭",
+          link: "faq/ssh-close-and-workerman-stop",
+        },
+        {
+          text: "与nginx apache的关系",
+          link: "faq/relationship-with-apache-nginx",
+        },
+        { text: "禁用函数检查", link: "faq/disable-function-check" },
+        { text: "平滑重启原理", link: "faq/reload-principle" },
+        { text: "为Flash开843端口", link: "faq/flash-843" },
+        { text: "如何广播数据", link: "faq/how-to-broadcast" },
+        { text: "如何建立udp服务", link: "faq/how-to-create-udp-service" },
+        { text: "监听ipv6", link: "faq/ipv6" },
+        {
+          text: "关闭未认证的连接",
+          link: "faq/close-unauthed-connections",
+        },
+        { text: "传输加密-ssl/tls", link: "faq/ssl-support" },
+        { text: "创建wss服务", link: "faq/secure-websocket-server" },
+        { text: "创建https服务", link: "faq/secure-http-server" },
+        {
+          text: "workerman作为客户端",
+          link: "faq/use-workerman-as-client-side",
+        },
+        { text: "作为ws/wss客户端", link: "faq/as-wss-client" },
+        { text: "微信小程序", link: "faq/weixin-app" },
+        { text: "PHP的几种回调写法", link: "faq/callback_methods" },
+        {
+          text: "透过代理获取客户端真实ip",
+          link: "faq/get-real-ip-from-proxy",
+        },
+        { text: "开机启动", link: "faq/start-with-system" },
+        {
+          text: "接收和发送16进制数据",
+          link: "faq/send-recv-hexadecimal-data",
+        },
+        { text: "接收一定请求后重启", link: "faq/max-requests" },
+        {
+          text: "win下初始化多个worker",
+          link: "faq/multi-woker-for-windows",
+        },
+        {
+          text: "请求集中在某些进程",
+          link: "faq/requests-concentrated-in-certain-processes",
+        },
+      ],
+    },
+    {
+      text: "附录",
+      collapsed: false,
+      items: [
+        { text: "优化Linux内核", link: "appendices/kernel-optimization" },
+        { text: "压力测试", link: "appendices/stress-test" },
+        { text: "安装扩展", link: "appendices/install-extension" },
+        { text: "websocket协议", link: "appendices/about-websocket" },
+        { text: "ws协议", link: "appendices/about-ws" },
+        { text: "text协议", link: "appendices/about-text" },
+        { text: "frame协议", link: "appendices/about-frame" },
+        {
+          text: "不支持的函数/特性",
+          link: "appendices/unavailable-functions",
+        },
+      ],
+    },
+    {
+      text: "版权信息",
+      link: "license",
+    },
+  ];
+}
+
+function sidebarGateway(): DefaultTheme.SidebarItem[] {
+  return [
+    { text: "序言", link: "README" },
+    { text: "特性", link: "feature" },
+    { text: "原理", link: "principle" },
+    { text: "开发必读", link: "getting-started" },
+    { text: "启动与停止", link: "start-and-stop" },
+    { text: "与ThinkPHP等框架结合", link: "work-with-other-frameworks" },
+    { text: "与webman结合", link: "webman" },
+    { text: "Register类的使用", link: "register" },
+    { text: "Gateway类的使用", link: "gateway" },
+    { text: "BusinessWorker类的使用", link: "business-worker" },
+    {
+      text: "Events类的回调属性",
+      link: "event-functions",
+      items: [
+        { text: "onWorkerStart", link: "on-worker-start" },
+        { text: "onConnect", link: "on-connect" },
+        { text: "onWebSocketConnect", link: "on-web-socket-connect" },
+        { text: "onMesssge", link: "on-messsge" },
+        { text: "onClose", link: "on-close" },
+        { text: "onWorkerStop", link: "on-worker-stop" },
+      ],
+    },
+    {
+      text: "Lib/Gateway类提供的接口",
+      link: "lib-gateway-functions",
+      items: [
+        { text: "sendToAll", link: "send-to-all" },
+        { text: "sendToClient", link: "send-to-client" },
+        { text: "closeClient", link: "close-client" },
+        { text: "isOnline", link: "is-online" },
+        { text: "bindUid", link: "bind-uid" },
+        { text: "unbindUid", link: "unbind-uid" },
+        { text: "isUidOnline", link: "is-uid-online" },
+        { text: "getClientIdByUid", link: "get-client-id-by-uid" },
+        { text: "getUidByClientId", link: "get-uid-by-client-id" },
+        { text: "sendToUid", link: "send-to-uid" },
+        { text: "joinGroup", link: "join-group" },
+        { text: "leaveGroup", link: "leave-group" },
+        { text: "ungroup", link: "ungroup" },
+        { text: "sendToGroup", link: "send-to-group" },
+        {
+          text: "getClientIdCountByGroup",
+          link: "get-client-id-count-by-group",
+        },
+        {
+          text: "getClientSessionsByGroup",
+          link: "get-client-sessions-by-group",
+        },
+        { text: "getAllClientIdCount", link: "get-all-client-id-count" },
+        { text: "getAllClientSessions", link: "get-all-client-sessions" },
+        { text: "setSession", link: "set-session" },
+        { text: "updateSession", link: "update-session" },
+        { text: "getSession", link: "get-session" },
+        {
+          text: "getClientIdListByGroup",
+          link: "get-client-id-list-by-group",
+        },
+        { text: "getAllClientIdList", link: "get-all-client-id-list" },
+        { text: "getUidListByGroup", link: "get-uid-list-by-group" },
+        { text: "getUidCountByGroup", link: "get-uid-count-by-group" },
+        { text: "getAllUidList", link: "get-all-uid-list" },
+        { text: "getAllUidCount", link: "get-all-uid-count" },
+        { text: "getAllGroupIdList", link: "get-all-group-id-list" },
+      ],
+    },
+    { text: "定时器", link: "timer" },
+    { text: "心跳检测", link: "heartbeat" },
+    { text: "设置路由", link: "router" },
+    { text: "超全局数组$_SESSION", link: "session" },
+    { text: "超全局数组$_SERVER", link: "server" },
+    { text: "常用组件", link: "component" },
+    {
+      text: "分布式部署",
+      link: "distributed",
+      items: [
+        { text: "为什么要分布式部署", link: "why-distributed" },
+        { text: "如何分布式部署", link: "how-distributed" },
+        { text: "Gateway Worker分离部署", link: "gateway-worker-separation" },
+      ],
+    },
+    {
+      text: "常见问题",
+      link: "faq",
+      items: [
+        { text: "关于client_id", link: "client_id" },
+        { text: "在其它项目中主动推送消息", link: "push-in-other-project" },
+        { text: "开启多少进程合适", link: "process-count-seting" },
+        { text: "多协议支持", link: "multi-protocols" },
+        { text: "多协议如何区分端口", link: "get-gateway-port" },
+        { text: "定制通讯协议", link: "protocols" },
+        {
+          text: "运行多个GatewayWorker实例",
+          link: "multi-gatewayworker-instance",
+        },
+        { text: "使用mysql", link: "mysql" },
+        { text: "监控文件更新", link: "file-monitor" },
+        { text: "如何获得客户端ip", link: "get-ip" },
+        { text: "关闭未认证的链接", link: "close-unauthed-connections" },
+        { text: "获取GatewayWorker版本", link: "get-gateway-version" },
+        { text: "创建wss服务", link: "secure-websocket-server" },
+        { text: "更多常见问题", link: "more-faq" },
+        { text: "send buffer overflow", link: "send-buffer-overflow" },
+        {
+          text: "send buffer to worker fail",
+          link: "send-buffer-to-worker-fail",
+        },
+        { text: "register auth timeout", link: "register-auth-timeout" },
       ],
     },
   ];
@@ -316,4 +828,3 @@ export const search: DefaultTheme.AlgoliaSearchOptions["locales"] = {
     },
   },
 };
-
