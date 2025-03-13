@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: 什么是 webman ?
-      link: /guide/README
+      link: /webman/README
     - theme: alt
       text: 快速开始
-      link: /guide/install
+      link: /webman/install
 
   image:
     src: /logo.gif
