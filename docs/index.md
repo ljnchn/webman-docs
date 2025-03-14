@@ -8,7 +8,7 @@ hero:
   tagline: 超高性能可扩展 PHP 框架
   actions:
     - theme: brand
-      text: 什么是 webman ?
+      text: webman 是什么？
       link: /webman/README
     - theme: alt
       text: 快速开始
@@ -23,7 +23,7 @@ features:
     title: 超高性能 HTTP 服务框架
     details: webman 性能高于传统 php-fpm 框架10-100倍左右，比go的gin echo等框架性能高1倍左右。
   - icon: 🐘
-    title: 高稳定性、高复用、高扩展性
+    title: 高稳定性、高复用、高扩展性、支持协程
     details: webman 仅提供最核心的功能(路由、中间件、session、自定义进程接口)。其余功能全部复用 composer 生态。
   - icon: 🗄️
     title: 数据库 ORM 支持

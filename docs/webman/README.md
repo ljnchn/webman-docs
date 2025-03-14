@@ -1,8 +1,8 @@
 # webman 是什么
 
-Webman是一款基于Workerman构建的高性能服务框架，集成了HTTP、WebSocket、TCP、UDP等多种模块。通过常驻内存、协程、连接池等先进技术，Webman不仅突破了传统PHP的性能瓶颈，还极大地扩展了其应用场景。
+Webman 是一款基于 Workerman 构建的高性能服务框架，集成了 HTTP、WebSocket、TCP、UDP 等多种模块。通过常驻内存、协程、连接池等先进技术，Webman 不仅突破了传统PHP的性能瓶颈，还极大地扩展了其应用场景。
 
-此外，Webman还提供了强大的插件机制，使开发者能够快速集成和复用其他开发者开发的功能模块。无论是构建网站、开发HTTP接口、实现即时通讯、搭建物联网系统，还是开发游戏、TCP/UDP服务、Unix Socket服务等，Webman都能轻松应对，展现出卓越的性能和灵活性。
+此外，Webman 还提供了强大的插件机制，使开发者能够快速集成和复用其他开发者开发的功能模块。无论是构建网站、开发 HTTP 接口、实现即时通讯、搭建物联网系统，还是开发游戏、TCP/UDP服务、Unix Socket 服务等，Webman 都能轻松应对，展现出卓越的性能和灵活性。
 
 > **注意**
 > 当前文档为`webman v2`版本，如果你使用的是v1版本，请查看[webman v1文档](../guide/README.md)
@@ -11,7 +11,7 @@ Webman是一款基于Workerman构建的高性能服务框架，集成了HTTP、W
 
 **以最小内核提供最大的扩展性与最强的性能。**
 
-webman仅提供最核心的功能(路由、中间件、session、自定义进程接口)。其余功能全部复用composer生态，这意味着你可以在webman里使用最熟悉的功能组件，例如在数据库方面开发者可以选择使用Laravel的[illuminate/database](./db/tutorial.md)，也可以是ThinkPHP的[ThinkORM](./db/thinkorm.md)，还可以是其它组件如`Medoo`。在webman里集成他们是非常容易的事情。
+webman 仅提供最核心的功能(路由、中间件、session、自定义进程接口)。其余功能全部复用composer生态，这意味着你可以在webman里使用最熟悉的功能组件，例如在数据库方面开发者可以选择使用Laravel的[illuminate/database](./db/tutorial.md)，也可以是ThinkPHP的[ThinkORM](./db/thinkorm.md)，还可以是其它组件如`Medoo`。在webman里集成他们是非常容易的事情。
 
 # webman 具有以下特点
 
