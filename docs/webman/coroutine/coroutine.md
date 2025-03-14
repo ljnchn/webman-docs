@@ -1,7 +1,9 @@
 # 协程
+
 webman是基于workerman开发的，所以webman可以使用workerman的协程特性。
 
 ## 前提条件
+
 - PHP >= 8.1
 - Workerman >= 5.1.0 (`composer require workerman/workerman ~v5.1`)
 - webman-framework >= 2.1 (`composer require workerman/webman-framework ~v2.1`)
@@ -9,6 +11,7 @@ webman是基于workerman开发的，所以webman可以使用workerman的协程�
 - 协程默认是关闭的，需要单独设置eventLoop开启
 
 ## 开启方法
+
 webman支持为不同的进程开启不同的驱动，所以你可以在`config/process.php`中通过`eventLoop`配置协程驱动：
 
 ```php

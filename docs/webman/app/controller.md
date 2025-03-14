@@ -28,7 +28,8 @@ class FooController
 
 当访问 `http://127.0.0.1:8787/app/foo/foo/hello` 时，页面返回 `hello webman`
 
-
 ## url访问
+
 应用插件url地址路径都以`/app`开头，后面接插件标识，然后是具体的控制器及方法。
+
 例如`plugin\foo\app\controller\UserController`url地址是 `http://127.0.0.1:8787/app/foo/user`
