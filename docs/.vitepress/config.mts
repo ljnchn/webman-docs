@@ -948,10 +948,10 @@ function sidebarWebman(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: "1.4", link: "upgrade/1-4" },
-        { text: "1.4", link: "upgrade/1-5" },
+        { text: "1.5", link: "upgrade/1-5" },
         { text: "1.6", link: "upgrade/1-6" },
-        { text: "1.6", link: "upgrade/2-0" },
-        { text: "1.6", link: "upgrade/2-1" },
+        { text: "2.0", link: "upgrade/2-0" },
+        { text: "2.1", link: "upgrade/2-1" },
         { text: "致谢", link: "thanks" },
       ],
     },
