@@ -8,7 +8,7 @@
 .temp
 .vite_opt_cache
 .vscode
-/docs/.vitepress/dist/*
+dist
 cache
 temp
 examples-temp
