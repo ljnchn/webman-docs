@@ -34,7 +34,7 @@ jobs:
       - name: Setup pnpm # 步骤2：设置 pnpm 环境
         uses: pnpm/action-setup@v3 # 使用官方的 pnpm setup action
         with:
-          version: 8 # 指定你项目使用的 pnpm 版本，或省略以使用 .npmrc 或 package.json 中的版本
+          version: 9 # 指定你项目使用的 pnpm 版本，或省略以使用 .npmrc 或 package.json 中的版本
           run_install: false # 我们将在下一步手动运行 install
 
       - name: Set up Node.js # 步骤3：设置 Node.js 环境
