@@ -5,7 +5,7 @@ Webman 是一款基于 Workerman 构建的高性能服务框架，集成了 HTTP
 此外，Webman 还提供了强大的插件机制，使开发者能够快速集成和复用其他开发者开发的功能模块。无论是构建网站、开发 HTTP 接口、实现即时通讯、搭建物联网系统，还是开发游戏、TCP/UDP服务、Unix Socket 服务等，Webman 都能轻松应对，展现出卓越的性能和灵活性。
 
 > **注意**
-> 当前文档为`webman v2`版本，如果你使用的是v1版本，请查看[webman v1文档](../guide/README.md)
+> 当前文档为`webman v2`版本，如果你使用的是v1版本，请查看[webman v1 文档](https://v1.webman.rmb.run)
 
 # webman 理念
 

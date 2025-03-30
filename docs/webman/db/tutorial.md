@@ -5,7 +5,7 @@
 开发者也可以参考[使用其它数据库组件](others.md)章节使用ThinkPHP或者其它数据库。
 
 > **注意**
-> 当前手册为 webman-v2 版本，如果您使用的是webman-v1版本，请查看 [v1版本手册](../../guide/db/tutorial)
+> 当前手册为 webman-v2 版本，如果您使用的是webman-v1版本，请查看 [v1版本手册](https://v1.webman.rmb.run/guide/db/tutorial)
 
 ## 安装
 

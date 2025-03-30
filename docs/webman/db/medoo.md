@@ -4,7 +4,7 @@
 
 
 > **注意**
-> 当前手册为 webman v2 版本，如果您使用的是webman v1版本，请查看 [v1版本手册](../../guide/db/medoo)
+> 当前手册为 webman v2 版本，如果您使用的是webman v1版本，请查看 [v1版本手册](https://v1.webman.rmb.run/guide/db/medoo)
 
 ## 安装
 `composer require webman/medoo`

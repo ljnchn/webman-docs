@@ -3,7 +3,7 @@
 [webman/think-orm](https://github.com/webman-php/think-orm) 是基于 [top-think/think-orm](https://github.com/top-think/think-orm) 开发的数据库组件，支持连接池，支持协程和非协程环境。
 
 > **注意**
-> 当前手册为 webman v2 版本，如果您使用的是webman v1版本，请查看 [v1版本手册](../../guide/db/thinkorm)
+> 当前手册为 webman v2 版本，如果您使用的是webman v1版本，请查看 [v1版本手册](https://v1.webman.rmb.run/guide/db/thinkorm)
 
 ### 安装think-orm
 

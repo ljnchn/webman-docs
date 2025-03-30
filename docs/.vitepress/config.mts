@@ -39,7 +39,7 @@ export default defineConfig({
 
     sidebar: {
       "/webman/": { base: "/webman/", items: sidebarWebman() },
-      "/guide/": { base: "/guide/", items: sidebarGuide() },
+      // "/guide/": { base: "/guide/", items: sidebarGuide() },
       "/workerman/": { base: "/workerman/", items: sidebarWorkerman() },
       "/gateway/": { base: "/gateway/", items: sidebarGateway() },
     },
@@ -94,8 +94,7 @@ function nav(): DefaultTheme.NavItem[] {
         },
         {
           text: "webman v1",
-          link: "/guide/README",
-          activeMatch: "/guide/",
+          link: "https://v1.webman.rmb.run",
         },
       ],
     },
