@@ -1,4 +1,5 @@
 import { defineConfig, type DefaultTheme } from "vitepress";
+import PanguPlugin from 'markdown-it-pangu'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -10,6 +11,12 @@ export default defineConfig({
     hostname: "https://webman.rmb.run",
   },
   markdown: {
+    config: (md) => {
+      // 在这里使用 markdown-it 插件
+      md.use(PanguPlugin)
+      // 你可能还需要传递一些选项给插件
+      // md.use(markdownItAutoSpacing, { options... })
+    },
     image: {
       // 默认禁用；设置为 true 可为所有图片启用懒加载。
       lazyLoading: true,
